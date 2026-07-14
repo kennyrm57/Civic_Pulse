@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CivicPulse Rwanda — report an issue</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar__brand">
+    <div class="topbar__mark">CP</div>
+    <div>
+      <div class="topbar__name">CivicPulse Rwanda</div>
+      <div class="topbar__tag">Citizen feedback &amp; accountability</div>
+    </div>
+  </div>
+  <nav class="topbar__nav">
+    <a href="admin.html">Admin login</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <div class="wrap" style="padding: 0;">
+    <span class="hero__eyebrow">Report &middot; track &middot; hold institutions accountable</span>
+    <h1>Tell your local government what needs fixing</h1>
+    <p>Submit an issue about your district's services and get a tracking number you can use to follow up — no account needed.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="toolbar" style="margin-top:28px; border-bottom:1px solid var(--hairline); padding-bottom: 4px; gap: 24px;">
+    <button id="tab-submit-btn" class="tab-btn" style="background:none;border:none;border-bottom:2px solid var(--ink);color:var(--ink);padding:8px 2px;border-radius:0;font-weight:500;">Submit a complaint</button>
+    <button id="tab-track-btn" class="tab-btn" style="background:none;border:none;border-bottom:2px solid transparent;color:var(--charcoal-soft);padding:8px 2px;border-radius:0;font-weight:500;">Track a complaint</button>
+  </div>
+
+  <!-- SUBMIT PANEL -->
+  <div id="panel-submit">
+    <form id="complaint-form" class="card" novalidate>
+      <div class="field">
+        <label for="full_name">Your name <span style="color:var(--charcoal-soft); font-weight:400;">(optional)</span></label>
+        <input type="text" id="full_name" name="full_name" placeholder="Uwimana Alice" />
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone number <span style="color:var(--charcoal-soft); font-weight:400;">(optional, for follow-up)</span></label>
+        <input type="text" id="phone" name="phone" placeholder="+250 7XX XXX XXX" />
+        <div class="error">Phone number looks invalid.</div>
+      </div>
+
+      <div class="row-2">
+        <div class="field" id="field-district">
+          <label for="district">District</label>
+          <select id="district" name="district" required>
+            <option value="">Select your district</option>
+          </select>
+          <div class="error">Please select your district.</div>
+        </div>
+
+        <div class="field" id="field-category">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="">Select a category</option>
+          </select>
+          <div class="error">Please select a category.</div>
+        </div>
+      </div>
+
+      <div class="field" id="field-description">
+        <label for="description">Describe the issue</label>
+        <textarea id="description" name="description" placeholder="What happened, where, and since when? The more detail you give, the faster it can be routed to the right office." required></textarea>
+        <div class="hint">Minimum 10 characters. Avoid sharing sensitive personal information beyond what's needed.</div>
+        <div class="error">Please describe the issue in at least 10 characters.</div>
+      </div>
+
+      <button type="submit" id="submit-btn">Submit complaint</button>
+      <div id="submit-msg" class="form-msg"></div>
+    </form>
+
+    <div id="ticket-result" style="display:none;"></div>
+  </div>
+
+  <!-- TRACK PANEL -->
+  <div id="panel-track" style="display:none;">
+    <div class="card">
+      <div class="field" style="margin-bottom: 16px;">
+        <label for="track-id">Tracking ID</label>
+        <input type="text" id="track-id" placeholder="CP-2026-00001" />
+      </div>
+      <button id="track-btn" type="button">Check status</button>
+      <div id="track-msg" class="form-msg"></div>
+    </div>
+    <div id="track-result" style="display:none;"></div>
+  </div>
+
+  <p class="footer-note">CivicPulse Rwanda — prototype build. Complaints are routed automatically to the responsible ministry based on category.</p>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

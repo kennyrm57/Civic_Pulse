@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CivicPulse Rwanda — admin</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar__brand">
+    <div class="topbar__mark">CP</div>
+    <div>
+      <div class="topbar__name">CivicPulse Rwanda</div>
+      <div class="topbar__tag">Ministry admin console</div>
+    </div>
+  </div>
+  <nav class="topbar__nav">
+    <a href="index.html">Citizen portal</a>
+    <a href="#" id="logout-link" style="display:none; margin-left:16px;">Log out</a>
+  </nav>
+</div>
+
+<!-- LOGIN VIEW -->
+<div id="login-view" class="wrap login-shell" style="display:none;">
+  <h1 style="font-size:22px; margin-bottom: 18px;">Admin sign in</h1>
+  <form id="login-form" class="card">
+    <div class="field">
+      <label for="username">Username</label>
+      <input type="text" id="username" autocomplete="username" required />
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" autocomplete="current-password" required />
+    </div>
+    <button type="submit">Sign in</button>
+    <div id="login-msg" class="form-msg"></div>
+  </form>
+</div>
+
+<!-- DASHBOARD VIEW -->
+<div id="dashboard-view" class="wrap wrap--wide" style="display:none;">
+  <h1 style="margin-top: 28px;">Complaint registry</h1>
+  <p style="color:var(--charcoal-soft); font-size:14px; margin-top:4px;">All citizen complaints submitted through the portal, routed by category.</p>
+
+  <div class="stat-grid" id="stat-grid"></div>
+
+  <div class="toolbar">
+    <select id="filter-status"><option value="">All statuses</option></select>
+    <select id="filter-category"><option value="">All categories</option></select>
+    <select id="filter-district"><option value="">All districts</option></select>
+    <input type="text" id="filter-q" placeholder="Search description, ticket ID, or name" />
+    <button type="button" id="filter-clear" class="secondary">Clear</button>
+  </div>
+
+  <div id="table-wrap"></div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
